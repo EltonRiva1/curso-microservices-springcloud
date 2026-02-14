@@ -1,0 +1,95 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.10.5-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - curso-microservices-springcloud
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.0
+    container_name: keycloak
+    ports:
+      - "8081:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command: start-dev
+    networks:
+      - curso-microservices-springcloud
+
+  eurekaserver:
+    container_name: eurekaserver
+    build:
+      context: ./projeto-cursoms
+      dockerfile: eurekaserver/Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - curso-microservices-springcloud
+    depends_on:
+      - rabbitmq
+      - keycloak
+
+  msavaliadorcredito:
+    container_name: msavaliadorcredito
+    build:
+      context: ./projeto-cursoms
+      dockerfile: msavaliadorcredito/Dockerfile
+    networks:
+      - curso-microservices-springcloud
+    depends_on:
+      - eurekaserver
+      - rabbitmq
+    environment:
+      EUREKA_SERVER: eurekaserver
+      RABBITMQ_SERVER: rabbitmq
+
+  mscartoes:
+    container_name: mscartoes
+    build:
+      context: ./projeto-cursoms
+      dockerfile: mscartoes/Dockerfile
+    networks:
+      - curso-microservices-springcloud
+    depends_on:
+      - msavaliadorcredito
+    environment:
+      EUREKA_SERVER: eurekaserver
+      RABBITMQ_SERVER: rabbitmq
+
+  msclientes:
+    container_name: msclientes
+    build:
+      context: ./projeto-cursoms
+      dockerfile: msclientes/Dockerfile
+    networks:
+      - curso-microservices-springcloud
+    depends_on:
+      - mscartoes
+    environment:
+      EUREKA_SERVER: eurekaserver
+
+  mscloudgateway:
+    container_name: mscloudgateway
+    build:
+      context: ./projeto-cursoms
+      dockerfile: mscloudgateway/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - curso-microservices-springcloud
+    depends_on:
+      - msclientes
+      - keycloak
+    environment:
+      EUREKA_SERVER: eurekaserver
+      KEYCLOAK_SERVER: keycloak
+      KEYCLOAK_PORT: 8080
+
+networks:
+  curso-microservices-springcloud:
+    driver: bridge
