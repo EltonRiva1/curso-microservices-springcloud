@@ -27,15 +27,15 @@ O projeto segue o padrão de arquitetura distribuída com:
 
 # 🧱 Microserviços
 
-  Serviço              Responsabilidade
-  -------------------- ------------------------------------
-  eurekaserver         Registro e descoberta de serviços
-  msclientes           Gestão de clientes
-  mscartoes            Gestão de cartões
-  msavaliadorcredito   Avaliação de crédito
-  mscloudgateway       Gateway de entrada das requisições
-  rabbitmq             Broker de mensageria
-  keycloak             Autenticação e autorização
+| Serviço              | Responsabilidade                   |
+| -------------------- | ---------------------------------- |
+| `eurekaserver`       | Registro e descoberta de serviços  |
+| `msclientes`         | Gestão de clientes                 |
+| `mscartoes`          | Gestão de cartões                  |
+| `msavaliadorcredito` | Avaliação de crédito               |
+| `mscloudgateway`     | Gateway de entrada das requisições |
+| `rabbitmq`           | Broker de mensageria               |
+| `keycloak`           | Autenticação e autorização         |
 
 ------------------------------------------------------------------------
 
@@ -114,12 +114,12 @@ docker ps
 
 ### 4️⃣ Acessos
 
-  Serviço    URL
-  ---------- ------------------------
-  Eureka     http://localhost:8761
-  Gateway    http://localhost:8080
-  RabbitMQ   http://localhost:15672
-  Keycloak   http://localhost:8081
+| Serviço  | URL                                              |
+| -------- | ------------------------------------------------ |
+| Eureka   | [http://localhost:8761](http://localhost:8761)   |
+| Gateway  | [http://localhost:8080](http://localhost:8080)   |
+| RabbitMQ | [http://localhost:15672](http://localhost:15672) |
+| Keycloak | [http://localhost:8081](http://localhost:8081)   |
 
 ------------------------------------------------------------------------
 
@@ -176,6 +176,17 @@ mvn clean package
 -   OAuth2 / JWT
 -   Gateway validando tokens
 -   Serviços protegidos por Resource Server
+
+------------------------------------------------------------------------
+
+# 🧪 Fluxo de Requisição
+
+1. Cliente envia requisição ao Gateway
+2. Gateway valida token
+3. Gateway descobre serviço via Eureka
+4. Serviço processa requisição
+5. Caso necessário, evento é publicado no RabbitMQ
+6. Outro serviço consome o evento
 
 ------------------------------------------------------------------------
 
