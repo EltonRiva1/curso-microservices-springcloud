@@ -1,6 +1,6 @@
 # 📦 Sistema de Microserviços com Spring Cloud, RabbitMQ e Docker
 
-![Badge](https://img.shields.io/badge/Status-Em%20Andamento-yellow) ![Java](https://img.shields.io/badge/Java-17-blue) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.7-brightgreen) ![Docker](https://img.shields.io/badge/Docker-4.49.0-blue)
+![Badge](https://img.shields.io/badge/Status-Em%20Andamento-yellow) ![Java](https://img.shields.io/badge/Java-17-blue) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-brightgreen) ![Docker](https://img.shields.io/badge/Docker-4.49.0-blue)
 
 ## 📖 Sobre o Projeto
 
