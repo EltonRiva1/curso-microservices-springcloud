@@ -1,4 +1,4 @@
-package io.github.cursodsousa.eurekaserver;
+package io.github.cursodsousa.eurekaserver.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

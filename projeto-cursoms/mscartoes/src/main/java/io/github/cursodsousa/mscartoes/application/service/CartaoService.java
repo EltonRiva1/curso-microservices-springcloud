@@ -1,4 +1,4 @@
-package io.github.cursodsousa.mscartoes.application;
+package io.github.cursodsousa.mscartoes.application.service;
 
 import io.github.cursodsousa.mscartoes.domain.Cartao;
 import io.github.cursodsousa.mscartoes.infra.repository.CartaoRepository;

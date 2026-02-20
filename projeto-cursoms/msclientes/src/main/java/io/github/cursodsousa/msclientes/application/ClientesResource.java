@@ -1,6 +1,7 @@
 package io.github.cursodsousa.msclientes.application;
 
 import io.github.cursodsousa.msclientes.application.representation.ClienteSaveRequest;
+import io.github.cursodsousa.msclientes.application.service.ClienteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

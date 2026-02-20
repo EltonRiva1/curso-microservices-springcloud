@@ -3,6 +3,7 @@ package io.github.cursodsousa.msavaliadorcredito.application;
 import io.github.cursodsousa.msavaliadorcredito.application.ex.DadosClienteNotFoundException;
 import io.github.cursodsousa.msavaliadorcredito.application.ex.ErroComunicacaoMicroservicesException;
 import io.github.cursodsousa.msavaliadorcredito.application.ex.ErroSolicitacaoCartaoException;
+import io.github.cursodsousa.msavaliadorcredito.application.service.AvaliadorCreditoService;
 import io.github.cursodsousa.msavaliadorcredito.domain.model.DadosAvaliacao;
 import io.github.cursodsousa.msavaliadorcredito.domain.model.DadosSolicitacaoEmissaoCartao;
 import org.springframework.http.HttpStatus;

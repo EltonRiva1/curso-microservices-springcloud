@@ -1,4 +1,4 @@
-package io.github.cursodsousa.msavaliadorcredito.application;
+package io.github.cursodsousa.msavaliadorcredito.application.service;
 
 import feign.FeignException;
 import io.github.cursodsousa.msavaliadorcredito.application.ex.DadosClienteNotFoundException;

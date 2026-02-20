@@ -1,4 +1,4 @@
-package io.github.cursodsousa.msclientes.application;
+package io.github.cursodsousa.msclientes.application.service;
 
 import io.github.cursodsousa.msclientes.domain.Cliente;
 import io.github.cursodsousa.msclientes.infra.repository.ClienteRepository;

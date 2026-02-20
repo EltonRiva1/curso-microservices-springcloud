@@ -2,6 +2,8 @@ package io.github.cursodsousa.mscartoes.application;
 
 import io.github.cursodsousa.mscartoes.application.representation.CartaoPorClienteResponse;
 import io.github.cursodsousa.mscartoes.application.representation.CartaoSaveRequest;
+import io.github.cursodsousa.mscartoes.application.service.CartaoService;
+import io.github.cursodsousa.mscartoes.application.service.ClienteCartaoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

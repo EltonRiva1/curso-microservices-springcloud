@@ -1,4 +1,4 @@
-package io.github.cursodsousa.mscloudgateway;
+package io.github.cursodsousa.mscloudgateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
